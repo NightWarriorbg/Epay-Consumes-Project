@@ -21,7 +21,7 @@ class PaymentServiceImplTests {
     @Test
     public void getMerchantsData() throws Exception {
         MerchantList merchantList = paymentService.getMerchantsData();
-        Assert.assertEquals((long) merchantList.getMerchants(), 2);
+        Assert.assertEquals((long) merchantList.getMerchants(), getRandomInt(0, 3));
     }
 
     @Test
@@ -35,6 +35,9 @@ class PaymentServiceImplTests {
         Assert.assertNotNull(response.getStatus());
         Assert.assertNotNull(response.getValidto());
         Assert.assertNotNull(response.getAmount());
+
+        failTestAtRandom();
+
     }
 
     @Test
@@ -46,13 +49,14 @@ class PaymentServiceImplTests {
         Assert.assertNotNull(request.getMerchantId());
         Assert.assertNotNull(request.getSubscrNumber());
 
-
         Response response = paymentService.checkBill(request);
         Assert.assertNotNull(response.getStatus());
         Assert.assertNotNull(response.getValidto());
         Assert.assertNotNull(response.getAmount());
         //Assert.assertNotNull(response.getFee());
         //Assert.assertNotNull(response.getTotal());
+
+        failTestAtRandom();
     }
 
     @Test
@@ -67,6 +71,9 @@ class PaymentServiceImplTests {
 
         Response response = paymentService.checkBill(request);
         Assert.assertNotNull(response.getStatus());
+
+        failTestAtRandom();
+
     }
 
     @Test
@@ -81,6 +88,15 @@ class PaymentServiceImplTests {
 
         Response response = paymentService.checkBill(request);
         Assert.assertNotNull(response.getStatus());
+
+        failTestAtRandom();
+
+    }
+
+    private void failTestAtRandom() {
+        if (getRandomInt(0, 4) == 2) {
+            Assert.fail();
+        }
     }
 
     private int getRandomInt(int min, int max) {
