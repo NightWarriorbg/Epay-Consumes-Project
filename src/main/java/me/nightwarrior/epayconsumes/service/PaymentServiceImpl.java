@@ -15,39 +15,40 @@ public class PaymentServiceImpl implements PaymentService {
     @Autowired
     private RestTemplate restTemplate;
 
-    private String baseUri = "http://localhost:8080/";
+    // InteliJ was not recognizing the @Value annotation and I couldn't make it work so I had to use a constant
+    private static final String BASE_URL = "http://localhost:8080/";
 
     @Override
     public MerchantList getMerchantsData() {
-        MerchantList merchantList = restTemplate.getForObject(baseUri + "getMerchantsData", MerchantList.class);
+        MerchantList merchantList = restTemplate.getForObject(BASE_URL + "getMerchantsData", MerchantList.class);
         log.info(merchantList.toString());
         return merchantList;
     }
 
     @Override
     public Response checkBill(Request request) {
-        Response response = restTemplate.postForObject(baseUri + "checkBill", request, Response.class);
+        Response response = restTemplate.postForObject(BASE_URL + "checkBill", request, Response.class);
         log.info(response.toString());
         return response;
     }
 
     @Override
     public Response checkBillBlocked(Request request) {
-        Response response = restTemplate.postForObject(baseUri + "checkBillBlocked", request, Response.class);
+        Response response = restTemplate.postForObject(BASE_URL + "checkBillBlocked", request, Response.class);
         log.info(response.toString());
         return response;
     }
 
     @Override
     public Response payBill(Request request) {
-        Response response = restTemplate.postForObject(baseUri + "payBill", request, Response.class);
+        Response response = restTemplate.postForObject(BASE_URL + "payBill", request, Response.class);
         log.info(response.toString());
         return response;
     }
 
     @Override
     public Response reverseBill(Request request) {
-        Response response = restTemplate.postForObject(baseUri + "reverseBill", request, Response.class);
+        Response response = restTemplate.postForObject(BASE_URL + "reverseBill", request, Response.class);
         log.info(response.toString());
         return response;
     }
