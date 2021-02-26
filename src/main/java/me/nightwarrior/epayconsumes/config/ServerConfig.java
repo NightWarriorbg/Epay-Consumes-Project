@@ -28,7 +28,7 @@ public class ServerConfig {
 
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder) {
-        return builder.setConnectTimeout(Duration.ofMillis(3000)).setReadTimeout(Duration.ofMillis(3000)).build();
+        return builder.setConnectTimeout(Duration.ofMillis(1000 * 60)).setReadTimeout(Duration.ofMillis(1000 * 60)).build();
     }
 
 }

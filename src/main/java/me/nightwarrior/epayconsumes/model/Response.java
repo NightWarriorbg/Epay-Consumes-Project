@@ -10,7 +10,6 @@ import java.util.Date;
 @Data
 @RequiredArgsConstructor
 @NoArgsConstructor(access= AccessLevel.PUBLIC, force=true)
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Response implements Serializable {
 
     private static final long serialVersionUID = 1L;
