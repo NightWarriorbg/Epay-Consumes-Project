@@ -5,6 +5,7 @@ import me.nightwarrior.epayconsumes.model.MerchantList;
 import me.nightwarrior.epayconsumes.model.Request;
 import me.nightwarrior.epayconsumes.model.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -15,8 +16,8 @@ public class PaymentServiceImpl implements PaymentService {
     @Autowired
     private RestTemplate restTemplate;
 
-    // InteliJ was not recognizing the @Value annotation and I couldn't make it work so I had to use a constant
-    private static final String BASE_URL = "http://localhost:8080/";
+    @Value("${mockup.server.uri}")
+    private String BASE_URL;
 
     @Override
     public MerchantList getMerchantsData() {
