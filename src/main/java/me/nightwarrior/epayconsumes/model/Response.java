@@ -16,7 +16,7 @@ public class Response implements Serializable {
 
     @JsonFormat()
     @NonNull
-    private  EpayResponseStatus status;
+    private EpayResponseStatus status;
 
     @JsonFormat(pattern="yyyyMMdd")
     private final Date validto;
