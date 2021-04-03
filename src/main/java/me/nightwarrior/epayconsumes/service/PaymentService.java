@@ -1,6 +1,6 @@
 package me.nightwarrior.epayconsumes.service;
 
-import me.nightwarrior.epayconsumes.model.MerchantList;
+import me.nightwarrior.epayconsumes.model.MerchantListMockup;
 import me.nightwarrior.epayconsumes.model.Request;
 import me.nightwarrior.epayconsumes.model.Response;
 import org.springframework.stereotype.Service;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface PaymentService {
 
-    public MerchantList getMerchantsData();
+    public MerchantListMockup getMerchantsData();
 
     public Response checkBill(Request request);
 

@@ -1,6 +1,6 @@
 package me.nightwarrior.epayconsumes;
 
-import me.nightwarrior.epayconsumes.model.MerchantList;
+import me.nightwarrior.epayconsumes.model.MerchantListMockup;
 import me.nightwarrior.epayconsumes.model.Request;
 import me.nightwarrior.epayconsumes.model.Response;
 import me.nightwarrior.epayconsumes.service.PaymentServiceImpl;
@@ -20,8 +20,8 @@ class PaymentServiceImplTests {
 
     @Test
     public void getMerchantsData() throws Exception {
-        MerchantList merchantList = paymentService.getMerchantsData();
-        Assert.assertEquals((long) merchantList.getMerchants(), getRandomInt(0, 3));
+        MerchantListMockup merchantListMockup = paymentService.getMerchantsData();
+        Assert.assertEquals((long) merchantListMockup.getMerchants(), getRandomInt(0, 3));
     }
 
     @Test

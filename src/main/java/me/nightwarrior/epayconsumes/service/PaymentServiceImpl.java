@@ -1,7 +1,7 @@
 package me.nightwarrior.epayconsumes.service;
 
 import lombok.extern.slf4j.Slf4j;
-import me.nightwarrior.epayconsumes.model.MerchantList;
+import me.nightwarrior.epayconsumes.model.MerchantListMockup;
 import me.nightwarrior.epayconsumes.model.Request;
 import me.nightwarrior.epayconsumes.model.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +20,10 @@ public class PaymentServiceImpl implements PaymentService {
     private String BASE_URL;
 
     @Override
-    public MerchantList getMerchantsData() {
-        MerchantList merchantList = restTemplate.getForObject(BASE_URL + "getMerchantsData", MerchantList.class);
-        log.info(merchantList.toString());
-        return merchantList;
+    public MerchantListMockup getMerchantsData() {
+        MerchantListMockup merchantListMockup = restTemplate.getForObject(BASE_URL + "getMerchantsData", MerchantListMockup.class);
+        log.info(merchantListMockup.toString());
+        return merchantListMockup;
     }
 
     @Override

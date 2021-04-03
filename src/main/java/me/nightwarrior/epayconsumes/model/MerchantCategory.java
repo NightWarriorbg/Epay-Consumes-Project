@@ -4,16 +4,17 @@ import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.annotation.Id;
 
 @Data
 @RequiredArgsConstructor
 @NoArgsConstructor(access= AccessLevel.PRIVATE, force=true)
-public class Merchant {
+public class MerchantCategory {
 
-    private final Integer merchantId;
-    private final Integer categoryId;
-    private final String merchantName;
-    private final String merchantDescription;
+    private Integer categoryId;
+    private final String categoryName;
+    private final String categoryType;
+    private final String categoryDescription;
     private final Integer listOrder;
 
 }
